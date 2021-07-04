@@ -133,7 +133,7 @@ class _DescriptionState extends State<Description> {
                 }),
           ),
           Positioned(
-            bottom: 10,
+            bottom: 40,
             left: (MediaQuery.of(context).size.width / 2) - 10,
             child: Row(
               children: [
