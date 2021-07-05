@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:education/animation/animation.dart';
-import 'package:education/home/home.dart';
 import "package:flutter/material.dart";
 import "package:carousel_slider/carousel_slider.dart";
 import "package:shared_preferences/shared_preferences.dart";
