@@ -16,12 +16,30 @@ class _PoyAnimeState extends State<PoyAnime>
     with SingleTickerProviderStateMixin {
   late final AnimationController animationController = AnimationController(
     vsync: this,
-    duration: Duration(seconds: 1),
+    duration: Duration(milliseconds: 500),
   );
-  late final pos = Tween<Offset>(begin: Offset(0, 0.9), end: Offset.zero)
+  late final pos = Tween<Offset>(begin: Offset(0, 0.6), end: Offset.zero)
       .animate(animationController);
   late final pos1 = Tween<Offset>(begin: Offset(0, -0.9), end: Offset.zero)
       .animate(animationController);
+  late final pos2 = Tween<Offset>(begin: Offset(-1, 0), end: Offset.zero)
+      .animate(animationController);
+  Animation<Offset>? position;
+  func() {
+    switch (widget.depart) {
+      case "top":
+        position = pos1;
+        break;
+      case "bas":
+        position = pos;
+        break;
+      case "left":
+        position = pos2;
+        break;
+
+      default:
+    }
+  }
 
   @override
   void dispose() {
@@ -32,6 +50,7 @@ class _PoyAnimeState extends State<PoyAnime>
   @override
   void initState() {
     super.initState();
+    func();
     Timer(Duration(seconds: widget.second!), () {
       if (mounted) {
         animationController.forward();
@@ -45,7 +64,7 @@ class _PoyAnimeState extends State<PoyAnime>
       opacity: animationController,
       child: SlideTransition(
         child: widget.child,
-        position: widget.depart == "top" ? pos1 : pos,
+        position: position!,
       ),
     );
   }

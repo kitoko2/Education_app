@@ -1,7 +1,5 @@
 import 'dart:ui';
-
 import 'package:education/animation/animation.dart';
-import 'package:education/home/home.dart';
 import "package:flutter/material.dart";
 import "package:carousel_slider/carousel_slider.dart";
 import "package:shared_preferences/shared_preferences.dart";
@@ -26,6 +24,11 @@ class _DescriptionState extends State<Description> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
+          setState(() {
+            _prefs.then((SharedPreferences prefs) {
+              prefs.setBool("isFirst", false);
+            });
+          });
           Navigator.pushReplacementNamed(context, "/route1");
         },
         child: Icon(Icons.arrow_forward),
@@ -39,9 +42,10 @@ class _DescriptionState extends State<Description> {
                 width: double.infinity,
                 color: Color(0xFFD8D02E).withOpacity(0.3),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      height: 10,
+                      height: 5,
                     ),
                     PoyAnime(
                       second: 3,
@@ -56,10 +60,10 @@ class _DescriptionState extends State<Description> {
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 4,
                     ),
                     PoyAnime(
-                      depart: "bas",
+                      depart: "left",
                       second: 1,
                       child: Container(
                         width: 260,
@@ -75,7 +79,7 @@ class _DescriptionState extends State<Description> {
                       second: 2,
                       depart: "bas",
                       child: Text(
-                        "Avec une simplicité pour toute les tranches d'âge",
+                        "Avec une simplicité pour toutes les tranches d'âge",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 17,
@@ -84,10 +88,10 @@ class _DescriptionState extends State<Description> {
                       ),
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 4,
                     ),
                     PoyAnime(
-                      second: 4,
+                      second: 3,
                       depart: "bas",
                       child: Container(
                         width: 120,
@@ -99,6 +103,9 @@ class _DescriptionState extends State<Description> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
                   ],
                 ),
               ),
@@ -106,9 +113,26 @@ class _DescriptionState extends State<Description> {
                 color: Color(0xFFB1DE6C).withOpacity(0.5),
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      height: (MediaQuery.of(context).size.height / 2) - 20,
+                      height: 20,
+                    ),
+                    PoyAnime(
+                      second: 1,
+                      depart: "left",
+                      child: Container(
+                        width: 200,
+                        height: 200,
+                        child: Image.asset("asset/description (5).png"),
+                      ),
+                    ),
+                    Text(
+                      "Toutes vos matières sont expliqués",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                      ),
                     ),
                     Text(
                       'Appuiyer sur "➔" pour continuer',
@@ -133,7 +157,7 @@ class _DescriptionState extends State<Description> {
                 }),
           ),
           Positioned(
-            bottom: 10,
+            bottom: 20,
             left: (MediaQuery.of(context).size.width / 2) - 10,
             child: Row(
               children: [

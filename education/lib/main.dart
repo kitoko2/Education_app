@@ -1,4 +1,5 @@
 import 'package:education/description.dart';
+import 'package:education/getting_start.dart';
 import 'package:education/home/home.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import "package:splash_screen_view/SplashScreenView.dart";
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         "/route1": (context) => Home(),
+        "/pageDescription": (context) => Description(),
       },
     );
   }
@@ -55,7 +57,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return SplashScreenView(
-      navigateRoute: premier ? Description() : Home(),
+      navigateRoute: premier ? GettingStart() : Home(),
       duration: 5000,
       imageSrc: "asset/splash/iconSplash.png",
       imageSize: 300,
