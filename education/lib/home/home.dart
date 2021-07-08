@@ -181,8 +181,8 @@ class _HomeState extends State<Home> {
                   );
                 },
                 staggeredTileBuilder: (i) {
-                  return StaggeredTile.count(1, i.isEven ? 1 : 1.1);
-                  //si i est pair le container aurat une taille 1 sinon 1.1
+                  return StaggeredTile.count(1, oneORtwo(i)! ? 1.1 : 1);
+                  //si i =1 ou i=2 le container aura une taille plus grande
                 },
               ),
             ),
@@ -190,6 +190,14 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  bool? oneORtwo(i) {
+    if (i == 1 || i == 2) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   Future<void>? takePhoto() async {
