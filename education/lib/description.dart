@@ -21,7 +21,13 @@ class _DescriptionState extends State<Description> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: new AppBar(
+        toolbarHeight: 0,
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      ), // juste la pour appliquer une brighness.dark pour les icones haut du telephone
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
@@ -52,7 +58,7 @@ class _DescriptionState extends State<Description> {
                       depart: "top",
                       child: Container(
                         width: double.infinity,
-                        height: 400,
+                        height: size.height / 2.8,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("asset/group2.png"),
@@ -70,7 +76,7 @@ class _DescriptionState extends State<Description> {
                         "Votre application pour vous accompagner dans l'apprentissage",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 23,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -82,7 +88,7 @@ class _DescriptionState extends State<Description> {
                         "Avec une simplicité pour tous les niveaux",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -90,19 +96,6 @@ class _DescriptionState extends State<Description> {
                     SizedBox(
                       height: 4,
                     ),
-                    // PoyAnime(
-                    //   second: 3,
-                    //   depart: "bas",
-                    //   child: Container(
-                    //     width: 120,
-                    //     height: 120,
-                    //     decoration: BoxDecoration(
-                    //       image: DecorationImage(
-                    //         image: AssetImage("asset/group23.png"),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 10,
                     ),
@@ -114,6 +107,7 @@ class _DescriptionState extends State<Description> {
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 5,
@@ -123,7 +117,7 @@ class _DescriptionState extends State<Description> {
                       depart: "left",
                       child: Container(
                         width: double.infinity,
-                        height: 400,
+                        height: size.height / 2,
                         child: Image.asset("asset/description (5).png"),
                       ),
                     ),

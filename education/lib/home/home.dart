@@ -1,3 +1,5 @@
+import 'package:education/afterHome/menuCours.dart';
+import 'package:education/animation/custompageT.dart';
 import 'package:education/main.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/services.dart';
@@ -23,10 +25,26 @@ class _HomeState extends State<Home> {
   String? value;
 
   List<Matiere> matiereDispo = [
-    Matiere("Mathematique", "les maths dans la poche"),
-    Matiere("Anglais", "l'anglais donne des ailes"),
-    Matiere("Français", "s'avoir s'exprimer pour reigner"),
-    Matiere("Physique", "la physique pour les geeks"),
+    Matiere(
+      "Mathematique",
+      "les maths dans la poche",
+      Colors.red.withOpacity(0.7),
+    ),
+    Matiere(
+      "Anglais",
+      "l'anglais donne des ailes",
+      Colors.blue.withOpacity(0.7),
+    ),
+    Matiere(
+      "Français",
+      "s'avoir s'exprimer pour reigner",
+      Colors.blue.withOpacity(0.7),
+    ),
+    Matiere(
+      "Physique",
+      "la physique pour les geeks",
+      Colors.red.withOpacity(0.7),
+    ),
   ];
   @override
   void initState() {
@@ -145,13 +163,22 @@ class _HomeState extends State<Home> {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      //next page
+                      Navigator.push(
+                        context,
+                        PoyCustom(
+                          child: MenuCours(
+                            nomMatiere: matiereDispo[index].nom,
+                            couleur: matiereDispo[index].couleur,
+                            description: matiereDispo[index].description,
+                          ),
+                        ),
+                      );
                     },
                     child: Container(
                       padding:
                           EdgeInsets.symmetric(vertical: 19, horizontal: 8),
                       decoration: BoxDecoration(
-                        color: Colors.blue.withOpacity(0.6),
+                        color: matiereDispo[index].couleur,
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Center(
@@ -244,9 +271,11 @@ class Matiere {
   String? nom;
   String? description;
   String? image;
-  Matiere(String nom, String description) {
+  Color? couleur;
+  Matiere(String nom, String description, Color couleur) {
     this.nom = nom;
     this.description = description;
+    this.couleur = couleur;
     // this.image=image;
   }
 }
