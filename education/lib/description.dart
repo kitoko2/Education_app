@@ -40,7 +40,7 @@ class _DescriptionState extends State<Description> {
               Container(
                 padding: EdgeInsets.only(top: 40, right: 15, left: 15),
                 width: double.infinity,
-                color: Color(0xFFD8D02E).withOpacity(0.3),
+                color: Colors.white,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -50,6 +50,22 @@ class _DescriptionState extends State<Description> {
                     PoyAnime(
                       second: 3,
                       depart: "top",
+                      child: Container(
+                        width: double.infinity,
+                        height: 400,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("asset/group2.png"),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    PoyAnime(
+                      depart: "left",
+                      second: 1,
                       child: Text(
                         "Votre application pour vous accompagner dans l'apprentissage",
                         textAlign: TextAlign.center,
@@ -59,30 +75,14 @@ class _DescriptionState extends State<Description> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    PoyAnime(
-                      depart: "left",
-                      second: 1,
-                      child: Container(
-                        width: 260,
-                        height: 260,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("asset/descriotion (1).png"),
-                          ),
-                        ),
-                      ),
-                    ),
                     PoyAnime(
                       second: 2,
                       depart: "bas",
                       child: Text(
-                        "Avec une simplicité pour toutes les tranches d'âge",
+                        "Avec une simplicité pour tous les niveaux",
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 17,
+                          fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -90,19 +90,19 @@ class _DescriptionState extends State<Description> {
                     SizedBox(
                       height: 4,
                     ),
-                    PoyAnime(
-                      second: 3,
-                      depart: "bas",
-                      child: Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage("asset/descriotion (2).png"),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // PoyAnime(
+                    //   second: 3,
+                    //   depart: "bas",
+                    //   child: Container(
+                    //     width: 120,
+                    //     height: 120,
+                    //     decoration: BoxDecoration(
+                    //       image: DecorationImage(
+                    //         image: AssetImage("asset/group23.png"),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(
                       height: 10,
                     ),
@@ -110,20 +110,20 @@ class _DescriptionState extends State<Description> {
                 ),
               ),
               Container(
-                color: Color(0xFFB1DE6C).withOpacity(0.5),
+                color: Colors.white,
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: 5,
                     ),
                     PoyAnime(
                       second: 1,
                       depart: "left",
                       child: Container(
-                        width: 200,
-                        height: 200,
+                        width: double.infinity,
+                        height: 400,
                         child: Image.asset("asset/description (5).png"),
                       ),
                     ),
@@ -131,16 +131,18 @@ class _DescriptionState extends State<Description> {
                       "Toutes vos matières sont expliqués",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontSize: 22,
                       ),
                     ),
                     Text(
                       'Appuiyer sur "➔" pour continuer',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 21,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 19,
                       ),
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                   ],
                 ),

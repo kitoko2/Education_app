@@ -5,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import "package:splash_screen_view/SplashScreenView.dart";
 import "package:flutter/material.dart";
 
-
 void main() {
   runApp(MyApp());
 }
@@ -61,8 +60,8 @@ class _SplashState extends State<Splash> {
       duration: 5000,
       imageSrc: "asset/splash/iconSplash.png",
       imageSize: 300,
-      backgroundColor: Color(0xFFD26EEC),
-      text: "Poy & Smad",
+      backgroundColor: Colors.red[300],
+      text: "Logitech",
       textType: TextType.ColorizeAnimationText,
       colors: [
         Color(0xFF6C63FF),
