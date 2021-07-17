@@ -1,11 +1,14 @@
 import 'package:education/description.dart';
-import 'package:education/getting_start.dart';
 import 'package:education/home/home.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:education/switchWidget/firstornot.dart';
+import 'package:education/test.dart';
 import "package:splash_screen_view/SplashScreenView.dart";
 import "package:flutter/material.dart";
+import "package:firebase_core/firebase_core.dart";
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -26,6 +29,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/route1": (context) => Home(),
         "/pageDescription": (context) => Description(),
+        "/test": (context) => Test(),
       },
     );
   }
@@ -39,24 +43,10 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  Future<bool>? isFirst;
-  bool premier = true;
-  @override
-  void initState() {
-    super.initState();
-    isFirst = _prefs.then((SharedPreferences prefs) {
-      setState(() {
-        premier = prefs.getBool("isFirst") ?? true;
-      });
-      return prefs.getBool("isFirst") ?? true;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return SplashScreenView(
-      navigateRoute: premier ? GettingStart() : Home(),
+      navigateRoute: FirstOrNot(),
       duration: 5000,
       imageSrc: "asset/splash/iconSplash.png",
       imageSize: 300,

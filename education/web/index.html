@@ -31,6 +31,16 @@
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyAeQHdwKakBvs-FD1Qn0uPjP9q1SX8xn9Y",
+    authDomain: "education-b75d8.firebaseapp.com",
+    projectId: "education-b75d8",
+    storageBucket: "education-b75d8.appspot.com",
+    messagingSenderId: "147665117643",
+    appId: "1:147665117643:web:b6a081e457ac22549c964e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
     function loadMainDartJs() {
@@ -95,4 +105,10 @@
     }
   </script>
 </body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
 </html>

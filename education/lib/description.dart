@@ -35,7 +35,9 @@ class _DescriptionState extends State<Description> {
               prefs.setBool("isFirst", false);
             });
           });
-          Navigator.pushReplacementNamed(context, "/route1");
+
+          Navigator.pushReplacementNamed(context, "/test");
+          //inscription ou home(test est donc le stremProvider)
         },
         child: Icon(Icons.arrow_forward),
       ),

@@ -1,5 +1,6 @@
 import 'package:education/animation/animation.dart';
 import "package:flutter/material.dart";
+import 'package:flutter/rendering.dart';
 
 class MenuCours extends StatefulWidget {
   final String? nomMatiere;
@@ -14,10 +15,30 @@ class MenuCours extends StatefulWidget {
 class _MenuCoursState extends State<MenuCours> {
   String selection = "debutant";
   var maList;
-
+  ScrollController? controller;
+  bool floatB = true;
   @override
   void initState() {
     super.initState();
+    controller = ScrollController();
+    controller!.addListener(() {
+      final direction = controller!.position.userScrollDirection;
+      if (direction == ScrollDirection.forward) {
+        setState(() {
+          floatB = true;
+        });
+      }
+      if (direction == ScrollDirection.reverse) {
+        setState(() {
+          floatB = false;
+        });
+      }
+      if (controller!.position.pixels == controller!.position.maxScrollExtent) {
+        setState(() {
+          floatB = false;
+        });
+      }
+    });
     switch (widget.nomMatiere) {
       case "Mathematique":
         List<Cours> debutant = [
@@ -239,6 +260,12 @@ class _MenuCoursState extends State<MenuCours> {
       //   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       //   elevation: 0,
       // ),
+      floatingActionButton: floatB
+          ? FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.add),
+            )
+          : null, //pas utile ici (juste un test)
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -358,6 +385,7 @@ class _MenuCoursState extends State<MenuCours> {
             ),
             Expanded(
               child: ListView.builder(
+                controller: controller,
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                 itemCount: result.length,
                 itemBuilder: (context, i) {

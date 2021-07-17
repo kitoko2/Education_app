@@ -11,7 +11,7 @@ class _GettingStartState extends State<GettingStart> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    print(size.height);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: new AppBar(
