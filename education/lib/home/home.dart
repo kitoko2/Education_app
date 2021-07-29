@@ -32,22 +32,22 @@ class _HomeState extends State<Home> {
   List<Matiere> matiereDispo = [
     Matiere(
       "Mathematique",
-      "les maths dans la poche",
+      "Les maths dans la poche",
       Colors.red.withOpacity(0.7),
     ),
     Matiere(
       "Anglais",
-      "l'anglais donne des ailes",
+      "L'anglais donne des ailes",
       Colors.blue.withOpacity(0.7),
     ),
     Matiere(
       "Français",
-      "s'avoir s'exprimer pour reigner",
+      "S'avoir s'exprimer pour reigner",
       Colors.blue.withOpacity(0.7),
     ),
     Matiere(
       "Physique",
-      "la physique pour les geeks",
+      "La physique pour les geeks",
       Colors.red.withOpacity(0.7),
     ),
   ];
