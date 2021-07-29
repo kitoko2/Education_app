@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   ListTile(
-                    title: Text("deconexion"),
+                    title: Text("Deconexion"),
                     leading: Icon(Icons.logout),
                     onTap: () {
                       auth.deconnexion();
