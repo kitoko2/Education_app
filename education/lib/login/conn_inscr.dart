@@ -24,7 +24,6 @@ class _SignInORUpState extends State<SignInORUp> {
   final mykey = GlobalKey<FormState>();
   bool loading = false;
   AuthentificationService auth = AuthentificationService();
-  AuthentificationService lastauth = AuthentificationService();
   bool obscurePassword = true;
   bool obscureretapePassword = true;
 
@@ -171,7 +170,8 @@ class _SignInORUpState extends State<SignInORUp> {
                                           },
                                           onChanged: (entry) {
                                             setState(() {
-                                              email = entry;
+                                              email = entry
+                                                  .trim(); //enlever les espaces en trop
                                             });
                                           },
                                         ),
@@ -283,12 +283,13 @@ class _SignInORUpState extends State<SignInORUp> {
                                         ),
                                         onPressed: () async {
                                           if (mykey.currentState!.validate()) {
+                                            FocusScope.of(context).unfocus();
                                             setState(() {
                                               loading = true;
                                             });
 
                                             final result = first
-                                                ? await lastauth
+                                                ? await auth
                                                     .registerWithEmailAndPassword(
                                                         email!, password!)
                                                 : await auth
@@ -324,6 +325,9 @@ class _SignInORUpState extends State<SignInORUp> {
                                           TextButton(
                                             onPressed: () {
                                               setState(() {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                //pour enlever le clavier
                                                 emailController.clear();
                                                 passwordController.clear();
                                                 retapePasswordController
@@ -349,12 +353,40 @@ class _SignInORUpState extends State<SignInORUp> {
                                         ],
                                       ),
                                       SizedBox(height: 5),
-                                      Divider(
-                                        thickness: 1,
-                                        indent: 10,
-                                        endIndent: 10,
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                3,
+                                            height: 1,
+                                            child: Container(
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          Text(
+                                            "OU",
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width /
+                                                3,
+                                            height: 1,
+                                            child: Container(
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                      SizedBox(height: 5),
+                                      SizedBox(height: 6),
                                       OutlinedButton.icon(
                                         style: ButtonStyle(
                                           side: MaterialStateProperty.all(

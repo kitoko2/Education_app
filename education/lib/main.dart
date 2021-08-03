@@ -8,7 +8,7 @@ import "package:firebase_core/firebase_core.dart";
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -44,13 +44,17 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SplashScreenView(
       navigateRoute: FirstOrNot(),
-      duration: 5000,
-      imageSrc: "asset/splash/iconSplash.png",
-      imageSize: 300,
+      duration: 4000,
       backgroundColor: Colors.red[300],
+      // imageSrc: "asset/splash/iconSplash.png",
       text: "Logitech",
       textType: TextType.ColorizeAnimationText,
       colors: [

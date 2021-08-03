@@ -91,4 +91,4 @@ class AuthentificationService {
 }
 
 // si ya une erreur de PlatformException(sign_in_failed, com.google.android.gms.common.api.ApiException: 12500: , null)
-// on ajoute un email a Adresse e-mail associée dans firebase
+// on ajoute un email a Adresse e-mail associée dans firebase ou une clé sha

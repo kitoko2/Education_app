@@ -8,7 +8,7 @@ class DatabaseFirestore {
       FirebaseFirestore.instance.collection("users");
 
   saveUser({String? name, bool? isFirst}) async {
-    return await userCollection.doc(uid).set({
+    return  userCollection.doc(uid).set({
       "name": name,
       "isFirst": isFirst,
     });
@@ -16,6 +16,8 @@ class DatabaseFirestore {
 
   UserInfor infoUtilisateur(DocumentSnapshot snapshot) {
     return UserInfor(
+      uid: snapshot.id,
+      //pas uid sinons tous les utilisateurs auront l'uid du connectecté
       name: (snapshot.data() as dynamic)["name"],
       isFirst: (snapshot.data() as dynamic)["isFirst"],
     );
@@ -26,9 +28,11 @@ class DatabaseFirestore {
   }
 
   List<UserInfor> infosUtilisateurs(QuerySnapshot snapshot) {
-    return (snapshot as dynamic).docs(uid).map((doc) {
-      return infoUtilisateur(doc);
-    });
+    return snapshot.docs.map(
+      (DocumentSnapshot document) {
+        return infoUtilisateur(document);
+      },
+    ).toList(); //pour retourner une liste
   }
 
   Stream<List<UserInfor>> get usersinfos {
@@ -37,7 +41,8 @@ class DatabaseFirestore {
 }
 
 class UserInfor {
+  final String? uid;
   final String? name;
   bool? isFirst;
-  UserInfor({this.name, this.isFirst});
+  UserInfor({this.name, this.isFirst, this.uid});
 }

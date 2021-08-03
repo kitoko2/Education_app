@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>147665117643-e0ci3sjfvc8cvnbk1p34bgis4jfe2tst.apps.googleusercontent.com</string>
+	<string>192971294943-89sut0552h1oe31oas41clj25827399k.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.147665117643-e0ci3sjfvc8cvnbk1p34bgis4jfe2tst</string>
+	<string>com.googleusercontent.apps.192971294943-89sut0552h1oe31oas41clj25827399k</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>147665117643-3mhq1i6hdh74ldd2rf0q1td81jllaocv.apps.googleusercontent.com</string>
+	<string>192971294943-q3ifgei0gere3rfv9snifknkajkgk3fs.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAytLocTj-Mwp9MOFo1AH7WO2bvLawmAzw</string>
+	<string>AIzaSyC6nB7nmNUKUMud0DwdA3ubYI-BVsUMOyQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>147665117643</string>
+	<string>192971294943</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.education</string>
 	<key>PROJECT_ID</key>
-	<string>education-b75d8</string>
+	<string>logitech-fb4c5</string>
 	<key>STORAGE_BUCKET</key>
-	<string>education-b75d8.appspot.com</string>
+	<string>logitech-fb4c5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:147665117643:ios:83529e84c84fe8639c964e</string>
+	<string>1:192971294943:ios:73622a2769590bdc6c816a</string>
 </dict>
 </plist>
